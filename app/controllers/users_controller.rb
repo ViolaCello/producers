@@ -11,10 +11,13 @@ end
 def create
     @user = User.create(user_params)
         session[:user_id] = @user.id
-        redirect_to use_path
+        redirect_to user_path(@user)
 end
     
 def show
+    @user = User.find_by(id: params[:id])
+    redirect_to '/' if @user == nil
+  
 end
 
 
