@@ -7,4 +7,10 @@
 
 <ul>
 <li><a href="<%= users_path %>">See list of Producers</a></li>
+<li><a href="<%= events_path %>">See list of Performances</a></li>
+<li><a href="<%= artists_path %>">See list of Artists</a></li>
+
+
+<li><%= button_to "Login", '/login', method: :get%></li>
+<li><%= button_to "Sign Up", '/users/new', method: :get%></li>
 </ul>
