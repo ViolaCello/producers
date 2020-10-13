@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 def index
     @users = User.all
+   # byebug
 end
 
 def new
@@ -15,7 +16,9 @@ def create
 end
     
 def show
+  # byebug
     @user = User.find_by(id: params[:id])
+    # byebug
     redirect_to '/' if @user == nil
   
 end

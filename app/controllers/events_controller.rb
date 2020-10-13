@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
 
 def index
-    if params[:user_id]
-        @events = User.find_by(id: params[:user_id])
+    if params[:id]
+        @events = User.find_by(id: params[:id])
     elsif 
         params[:artist_id]
         @events = Artist.find_by(id: params[:artist_id])
