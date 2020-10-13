@@ -9,7 +9,7 @@ module ApplicationHelper
     end
 
     def user_ok?(user)
-        if user && user.id != current_user.id
+        if !!user == false || (user.id != current_user.id)
          redirect_to '/'
        end
      end

@@ -1,11 +1,14 @@
 class EventsController < ApplicationController
 
 def index
-    if params[:id]
-        @events = User.find_by(id: params[:id])
+   # byebug
+    if params[:user_id]
+        @user = User.find_by(id: params[:user_id])
+        @events = @user.events
     elsif 
         params[:artist_id]
-        @events = Artist.find_by(id: params[:artist_id])
+        @artist = Artist.find_by(id: params[:artist_id])
+        @events = @artist.events
     else 
         @events = Event.all
     end
@@ -13,25 +16,35 @@ def index
 
 
 def new
-  #  byebug
-    @user = current_user if logged_in?
-    user_ok?(@user)
+   @user = current_user if logged_in?
+    if !!@user
+   # byebug  
     @artists = Artist.all
         @event = @user.events.build
+    else 
+        redirect_to '/'
     end
+end
 
     def create
         @user = current_user if logged_in?
         user_ok?(@user)
+        byebug
         @event = @user.events.build(event_params)
         if @event.save
-            redirect_to event_show_path(@user.events.last)
+            redirect_to event_show_path(@event)
         else 
             @errors = @event.errors
+            render :'events/new'
         end
 
       byebug
     end
+
+
+
+
+
 
     private
 
