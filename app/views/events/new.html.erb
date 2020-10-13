@@ -1,13 +1,19 @@
 <h1>New Event Form for Producer <%= current_user.name %> </h1>
 
 <%= form_for [@user, @event] do |f|%>
+
+
+
+
   <%= f.label :name%><br>
   <%= f.text_field :name%><br>
 <%= f.label :venue %><br>
   <%= f.text_field :venue %><br>
   <%= f.label :date %><br>
   <%= f.datetime_select  :curtain %><br>
+  <% @artists.each do |artist| %>
 
-
-  <%= f.submit %>
+<%= select_tag :artists, options_for_select(@artists.collect{ |artist| [artist.name, artist.id] }) %>
 <% end %>
+  <%= f.submit %>
+<% end %>   

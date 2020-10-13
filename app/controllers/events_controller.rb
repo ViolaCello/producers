@@ -16,6 +16,7 @@ def new
   #  byebug
     @user = current_user if logged_in?
     user_ok?(@user)
+    @artists = Artist.all
         @event = @user.events.build
     end
 
