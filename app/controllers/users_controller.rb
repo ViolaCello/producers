@@ -20,8 +20,17 @@ def show
     @user = User.find_by(id: params[:id])
     # byebug
     redirect_to '/' if @user == nil
-  
 end
+
+def edit
+    if logged_in?
+        @user = User.find_by(id: params[:id])
+       user_ok?(@user) 
+    else
+        redirect_to '/login'
+    end 
+end 
+
 
 
 private

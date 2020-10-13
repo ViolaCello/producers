@@ -14,4 +14,11 @@ def create
     end
  end
 
+def destroy
+   session.clear
+   redirect_to '/'
+   @current_user = nil
+end
+
+
 end
