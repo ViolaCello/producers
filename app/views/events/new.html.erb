@@ -1,0 +1,13 @@
+<h1>New Event Form for Producer <%= current_user.name %> </h1>
+
+<%= form_for [@user, @event] do |f|%>
+  <%= f.label :name%><br>
+  <%= f.text_field :name%><br>
+<%= f.label :venue %><br>
+  <%= f.text_field :venue %><br>
+  <%= f.label :date %><br>
+  <%= f.datetime_select  :curtain %><br>
+
+
+  <%= f.submit %>
+<%end%>
