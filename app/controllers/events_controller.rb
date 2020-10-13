@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
 
 def index
-   # byebug
     if params[:user_id]
         @user = User.find_by(id: params[:user_id])
         @events = @user.events
@@ -18,7 +17,6 @@ def index
 def new
    @user = current_user if logged_in?
     if !!@user
-   # byebug  
     @artists = Artist.all
         @event = @user.events.build
     else 
