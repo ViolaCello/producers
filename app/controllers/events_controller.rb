@@ -20,8 +20,16 @@ def new
     end
 
     def create
-        @new = event_params
-        byebug
+        @user = current_user if logged_in?
+        user_ok?(@user)
+        @event = @user.events.build(event_params)
+        if @event.save
+            redirect_to event_show_path(@user.events.last)
+        else 
+            @errors = @event.errors
+        end
+
+      byebug
     end
 
     private
