@@ -1,0 +1,5 @@
+from index sessions
+
+
+<li><%= button_to "Login", '/login', method: :get%></li>
+<li><%= button_to "Sign Up", '/users/new', method: :get%></li>

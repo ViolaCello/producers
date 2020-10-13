@@ -5,12 +5,10 @@
 
 <p>What would you like to do?</p>
 
-<ul>
-<li><a href="<%= users_path %>">See list of Producers</a></li>
-<li><a href="<%= events_path %>">See list of Performances</a></li>
-<li><a href="<%= artists_path %>">See list of Artists</a></li>
 
+<p><%= link_to "See list of Producers", users_path %></p>
+<p><%= link_to "See list of Performances", events_path %></p>
+<p><%= link_to "See list of Artists", artists_path %></p>
 
-<li><%= button_to "Login", '/login', method: :get%></li>
-<li><%= button_to "Sign Up", '/users/new', method: :get%></li>
-</ul>
+<p> <%= link_to "SignUp", signup_path %> </p>
+<p> <%= link_to "Login", login_path %> </p>
