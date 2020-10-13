@@ -1,0 +1,11 @@
+<h1>Index of Events</h1>
+<ul>
+<% @events.each do |event| %>
+<li><%= event.name %> - 
+<%= event.venue %> -
+<%= event.curtain %> - 
+<%= event.user.name %> - 
+<%= event.user.company %> - 
+</li>
+<% end %>
+</ul>
