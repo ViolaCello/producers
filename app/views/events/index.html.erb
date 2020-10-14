@@ -2,7 +2,7 @@
 <ul>
 <% @events.each do |event| %>
 <li><%= event.name %> - 
-<%= event.venue %> -
+<%= event.venue.name %> -
 <%= event.curtain %> - 
 <%= event.user.name %> - 
 <%= event.user.company %> - 

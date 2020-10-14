@@ -7,11 +7,10 @@
 
   <%= f.label :name%><br>
   <%= f.text_field :name%><br>
-<%= f.label :venue %><br>
-  <%= f.text_field :venue %><br>
+
   <%= f.label :date %><br>
   <%= f.datetime_select  :curtain %><br>
-  
+  <%= f.collection_select :venue_id, Venue.all, :id, :name %>
 
 
 
