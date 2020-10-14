@@ -5,3 +5,5 @@
 <p> <%= @venue.location %> <%= @venue.zipcode %> </p>
 <p>Seating Capacity <%= @venue.seats %>  </p>
 
+<%= link_to "Edit Venue Info", edit_venue_path(@venue) if logged_in? %> 
+

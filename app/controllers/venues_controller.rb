@@ -17,6 +17,13 @@ def show
     @venue = Venue.find_by(id: params[:id])
 end
 
+def edit
+end
+
+def update
+end
+
+
 private
 
 def venue_params

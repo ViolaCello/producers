@@ -11,7 +11,7 @@ class Venue < ApplicationRecord
 def location
     city = self.city
     state = self.state
-    location = "#{city}, #{state}"
+    "#{city}, #{state}"
 end
 
 
