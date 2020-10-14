@@ -17,7 +17,7 @@ def index
 def new
    @user = current_user if logged_in?
     if !!@user
-    @artists = Artist.all
+    @venues = Venue.all
         @event = @user.events.build
     else 
         redirect_to '/'
@@ -28,10 +28,9 @@ end
         @user = current_user if logged_in?
         if !!@user
         
-       @artist_params = get_artists(params[:artist][:artist_ids])
-       @artist_params.push(event_params)
+     
      #  byebug
-        @event = @user.events.build(@artist_params)
+        @event = @user.events.build(@event_params)
        byebug
         if @event.save
             redirect_to event_show_path(@event)
@@ -57,14 +56,7 @@ def event_params
     params.require(:event).permit(:name, :venue, :curtain, :user_id)
 end
 
-def get_artists(artist_ids)
-    @artists = []
-    artist_ids.each do |artist|
-        full_artist = Artist.find_by(id: artist)
-        @artists.push(full_artist.id) if !!full_artist
-    end
-    @artists
-end
+
 
 
 end
