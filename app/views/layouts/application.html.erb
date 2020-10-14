@@ -25,7 +25,7 @@
   
   <p><%= link_to "Edit Profile", edit_user_path(current_user) %> </p>
   <p><%= link_to "Add Event", new_user_event_path(current_user) %> </p>
-   <p><%= link_to "Add Venue", edit_venue_path(current_user) %> </p>
+   <p><%= link_to "Add Venue", new_venue_path %> </p>
   <p><%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete %></p>
 
   

@@ -14,4 +14,8 @@ module ApplicationHelper
        end
      end
 
+     def edit_ok?
+        current_user.id == params[:id]
+     end
+
 end

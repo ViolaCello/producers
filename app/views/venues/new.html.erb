@@ -64,9 +64,10 @@
                 ["WV", "West Virginia"], 
                 ["WY", "Wyoming"] ] )  %><br>
 
-
+<%= f.label :zipcode %> <br>
+  <%= f.number_field :zipcode %><br>
  <%= f.label :seats %> <br>
-  <%= f.text_field :seats %><br>
+  <%= f.number_field :seats %><br>
 
   <%= f.submit %>
 <% end %>
