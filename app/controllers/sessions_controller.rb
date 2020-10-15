@@ -20,5 +20,9 @@ def destroy
    @current_user = nil
 end
 
+def github
+
+end
+
 
 end

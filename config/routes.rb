@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/', to: 'sessions#index', as: 'home'
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
+  get 'github', to: 'sessions#github'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
