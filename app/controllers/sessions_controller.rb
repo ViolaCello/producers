@@ -23,22 +23,28 @@ end
 
 
 def github
-    # After entering a name and email value in the /auth/developer
-    # path and submitting the form, you will see a pretty-print of
-    # the authentication data object that comes from the "developer"
-    # strategy. In production, we'll swap this strategy for something
-    # like 'github' or 'facebook' or some other authentication broker
-    pp request.env['omniauth.auth']
+   # pp request.env['omniauth.auth']
+   #  session[:name] = request.env['omniauth.auth']['info']['name']
+   #  session[:omniauth_data] = request.env['omniauth.auth']
+   # byebug
+    #redirect_to home_path
+    oauth_email = request.env['omniauth.auth']['info']['email']
+    if @user = User.find_by(:email => oauth_email)
+      session[:user_id] = @user.id 
+    else 
+      oauth_name = request.env['omniauth.auth']['info']['name']
+      @user = User.new(:email => oauth_email, :name => oauth_name, :password => SecureRandom.hex)
+      if @user.save
+         session[:user_id] = @user.id
+      else 
+         #raise user.errors.full_messages.inspect
+         @errors = @user.errors.full_messages
+      end
+    end
+end
 
-    # We're going to save the authentication information in the session
-    # for demonstration purposes. We want to keep this data somewhere so that,
-    # after redirect, we have access to the returned data
-    session[:name] = request.env['omniauth.auth']['info']['name']
-    session[:omniauth_data] = request.env['omniauth.auth']
 
-    byebug
-    # Ye olde redirect
-    redirect_to home_path
- end
+
+
 
 end

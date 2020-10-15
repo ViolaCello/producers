@@ -1,2 +1,10 @@
-<h1>Sign in with GitHub</h1>
+<h1>GitHub SignIn </h1>
 
+<% if !@errors %>
+<h3>You have successfully signed in with GitHub </h3>
+<% else %>
+
+<% @errors.each do |error| %>
+<p><%= error %> </p>
+<% end %>
+<% end %>
