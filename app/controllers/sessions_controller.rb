@@ -20,11 +20,9 @@ def destroy
    @current_user = nil
 end
 
+
+
 def github
-
-end
-
-def create
     # After entering a name and email value in the /auth/developer
     # path and submitting the form, you will see a pretty-print of
     # the authentication data object that comes from the "developer"
@@ -38,8 +36,9 @@ def create
     session[:name] = request.env['omniauth.auth']['info']['name']
     session[:omniauth_data] = request.env['omniauth.auth']
 
+    byebug
     # Ye olde redirect
-    redirect_to root_path
+    redirect_to home_path
  end
 
 end
