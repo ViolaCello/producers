@@ -1,7 +1,10 @@
 <h1> Active Venues </h1>
 
+<table>
+
 <% @venues.each do |venue| %>
-
-<p><%= venue.name %> - <%= venue.location %></p>
-
+<tr>
+<td><p><%= link_to venue.name, venue_path(venue) %> </td><td> <%= venue.location %></p></td>
+</tr>
 <% end %>
+</table>

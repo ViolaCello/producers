@@ -1,5 +1,7 @@
 <h1>Create New Venue</h1>
 
+<%= render partial: '/errors', locals: { record: @venue }  %>
+
 <%= form_for @venue do |f|%>
   <%= f.label :name%><br>
   <%= f.text_field :name%><br>

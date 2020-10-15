@@ -1,5 +1,5 @@
-<% if !record.errors %>
-<% byebug %>
+<% if record.errors.count != 0  %>
+
   <div id="error_explanation">
     <h2>
       <%= pluralize(record.errors.count, "error") %>
@@ -8,7 +8,7 @@
 
     
     <% record.errors.full_messages.each do |msg| %>
-      <p><%= msg %></p>
+     <p style="color:red"> <%= msg %></p>
     <% end %>
    
   </div>

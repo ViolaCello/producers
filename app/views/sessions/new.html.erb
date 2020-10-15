@@ -1,4 +1,7 @@
 <h1>Login</h1>
+
+<p style="color:red"><b><%= @error if @error %></b> </p>
+
    <%= form_tag '/login' do %>
    <%= label_tag :email%>
    <%= text_field_tag :email %>
