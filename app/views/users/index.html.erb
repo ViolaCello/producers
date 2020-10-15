@@ -11,7 +11,7 @@
 <% @users.each do |user| %>
 <tr style="border:1px solid black;">
 <td><%= link_to user.name, user_path(user) %> </td>
-<td><%= user.company %> </td>
+<td><%= user.company ? user.company : user.name %> </td>
 </tr>
 <% end %>
 </table>

@@ -34,12 +34,17 @@ def github
       redirect_to user_path(@user)
     else 
       oauth_name = request.env['omniauth.auth']['info']['name']
-      @user = User.new(:email => oauth_email, :name => oauth_name, :password => SecureRandom.hex)
+      oauth_co = request.env['omniauth.auth']['extra']['raw_info']['company']
+      byebug
+      @user = User.new(:email => oauth_email, :name => oauth_name, :company => oauth_co, :password => SecureRandom.hex)
+    
       if @user.save
          session[:user_id] = @user.id
+         redirect_to user_path(@user)
       else 
-         #raise user.errors.full_messages.inspect
          @errors = @user.errors.full_messages
+         render :github
+
       end
     end
 end
