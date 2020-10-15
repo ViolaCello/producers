@@ -31,6 +31,7 @@ def github
     oauth_email = request.env['omniauth.auth']['info']['email']
     if @user = User.find_by(:email => oauth_email)
       session[:user_id] = @user.id 
+      redirect_to user_path(@user)
     else 
       oauth_name = request.env['omniauth.auth']['info']['name']
       @user = User.new(:email => oauth_email, :name => oauth_name, :password => SecureRandom.hex)
