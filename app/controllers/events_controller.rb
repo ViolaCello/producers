@@ -43,6 +43,19 @@ end
         @event = Event.find_by(id: params[:id])
     end
 
+def destroy
+    if logged_in?
+    user = current_user
+    user_ok?(@user)
+    event = Event.find_by(id: params[:id])
+    if user.id == event.user_id 
+        event.destroy
+        redirect_to user_events_path(@user)
+    end
+    redirect_to '/'
+    end
+
+end
 
 
 
