@@ -5,7 +5,7 @@ class Venue < ApplicationRecord
     validates :city, presence: true
     validates :state, presence: true
     validates :seats, presence: true
-
+    scope :large, -> { where 'seats > ?', 1000 }
 
 
 def location
@@ -13,6 +13,7 @@ def location
     state = self.state
     "#{city}, #{state}"
 end
+
 
 
 
