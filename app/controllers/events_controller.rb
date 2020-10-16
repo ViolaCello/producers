@@ -38,21 +38,19 @@ end
 
     def show
         @user = current_user if !!current_user
-        # get_event
     end
 
 def destroy
     if logged_in?
-    @user = current_user
-    user_ok?(@user)
-    # get_event
-    if user.id == @event.user_id 
-        @event.destroy
-        redirect_to user_events_path(@user)
-    end
+        @user = current_user
+        user_ok?(@user)
+        if @user.id == @event.user_id 
+            @event.destroy
+            redirect_to user_events_path(@user)
+        end
+    else 
     redirect_to '/'
     end
-
 end
 
 def edit
@@ -69,6 +67,7 @@ def update
     if logged_in?
         @user = current_user
         user_ok?(@user)
+        redirect_to '/' if @user.id != @event.user_id
         @event.update(event_params)
         redirect_to user_event_path(@user, @event)
         else  
