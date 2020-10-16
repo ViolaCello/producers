@@ -1,0 +1,20 @@
+
+
+<%= form_for [@user, @event] do |f|%>
+
+
+
+
+  <%= f.label :name%><br>
+  <%= f.text_field :name%><br>
+
+  <%= f.label :date %><br>
+  <%= f.datetime_select  :curtain %><br>
+  <%= f.collection_select :venue_id, Venue.all, :id, :name %>
+
+
+
+  <%= f.submit %>
+<% end %>  
+
+<%= link_to "Delete Event", [@user, @event], :method => :delete %>
