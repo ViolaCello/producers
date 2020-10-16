@@ -8,6 +8,10 @@
 <p><%= @event.venue.location %> </p>
 <p>Theatre: <%= @event.venue.name %> </p>
 <p>Date: <%= @event.curtain.nicedate %> </p>
-<p>Time: <%= @event.curtian.nicetime%> </p>
+<p>Time: <%= @event.curtain.nicetime%> </p>
 
-
+<% if ok_to_edit? %>
+<p>Ok to Edit</p>
+<% else %>
+<p>NOT ok to edit</p>
+<% end %>
