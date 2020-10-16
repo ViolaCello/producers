@@ -1,11 +1,21 @@
 <h1>Index of Events</h1>
-<ul>
-<% @events.each do |event| %>
-<li><%= link_to event.name, event_path(event) %> - 
-<%= event.venue.name %> -
-<%= event.curtain %> - 
-<%= event.user.name %> - 
-<%= event.user.company %> - 
-</li>
-<% end %>
-</ul>
+
+<table>
+
+<th>Performance</th>
+<th>Theatre</th>
+<th>Date/Tine</th>
+<th>Producer</th>
+<th>Company</th>
+
+    <% @events.each do |event| %> 
+    <tr>
+ <td>   <%= link_to event.name, event_path(event) %> </td>
+ <td>   <%= link_to event.venue.name, venue_path(event.venue) %> </td>
+ <td>   <%= event.curtain.nicedate %>  at <%= event.curtain.nicetime %> </td>
+ <td>   <%= link_to event.user.name, user_path(event.user) %> </td>
+ <td>   <%= event.user.company %> </td>
+</tr>
+    <% end %>
+
+</table>
