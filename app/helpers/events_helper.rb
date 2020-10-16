@@ -13,6 +13,7 @@ def event_by_state
         uniq_states.push(venue.state)
     end
     uniq_states_return = uniq_states.uniq
+    #byebug
 end
 
     
