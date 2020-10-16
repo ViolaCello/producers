@@ -51,10 +51,6 @@ def user_params
     params.require(:user).permit(:name, :password, :company, :email)
 end
 
-def user_ok?(user)
-    if !!user == false || (user.id != current_user.id)
-     redirect_to '/'
-   end
- end
+
 
 end

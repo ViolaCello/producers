@@ -56,13 +56,23 @@ def destroy
 end
 
 def edit
-    # get_event
-    byebug
-   
+    if logged_in?
+        @user = current_user
+        user_ok?(@user)
+    else
+        redirect_to '/'
+    end
 end
 
 def update
-
+    if logged_in?
+        @user = current_user
+        user_ok?(@user)
+        @event.update(event_params)
+        redirect_to user_event_path(@user, @event)
+        else  
+            redirect_to '/'
+        end
 end
 
 

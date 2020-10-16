@@ -1,1 +1,21 @@
-<h1>Edit Show: <%= @event.name %> </h1>
+<h1>Edit Show: <%= @event.name %></h1>
+
+
+<%= render partial: '/errors', locals: { record: @event }  %>
+
+<%= form_for [@user, @event] do |f|%>
+
+
+
+
+  <%= f.label :name%><br>
+  <%= f.text_field :name%><br>
+
+  <%= f.label :date %><br>
+  <%= f.datetime_select  :curtain %><br>
+  <%= f.collection_select :venue_id, Venue.all, :id, :name %>
+
+
+
+  <%= f.submit %>
+<% end %>  
