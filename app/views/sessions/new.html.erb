@@ -1,5 +1,11 @@
 <h1>Login</h1>
 
+<% if logged_in? %>
+<p style="color:red">You are already logged in.  Please <%= link_to "Logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete %>
+first if you are not <%= current_user.name %> </p>
+
+<% else %>
+
 <p style="color:red"><b><%= @error if @error %></b> </p>
 
    <%= form_tag '/login' do %>
@@ -8,4 +14,5 @@
    <%= label_tag :password%>
    <%= password_field_tag :password%>
    <%= submit_tag "Login"%>
+<%end%>
 <%end%>

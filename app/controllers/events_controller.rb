@@ -59,6 +59,7 @@ def edit
     if logged_in?
         @user = current_user
         user_ok?(@user)
+        redirect_to '/' if @user.id != @event.user_id
     else
         redirect_to '/'
     end

@@ -2,11 +2,13 @@
 
 <table>
 
+<% if @events.count != 0 %>
 <th>Performance</th>
 <th>Theatre</th>
 <th>Date/Tine</th>
 <th>Producer</th>
 <th>Company</th>
+<% end %>
 
     <% @events.each do |event| %> 
     <tr>

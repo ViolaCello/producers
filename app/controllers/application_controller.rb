@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?, :edit_ok?, :user_ok?
+    helper_method :current_user, :logged_in?, :user_ok? # :edit_ok?
 
 
     def current_user    
@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
 
     
 
-     def edit_ok?
-        current_user.id == params[:id]
-     end
+    #  def edit_ok?
+    #     current_user.id == params[:id]
+    #  end
 
      def user_ok?(user)
         if !!user == false || (user.id != current_user.id)
