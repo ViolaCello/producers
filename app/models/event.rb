@@ -4,10 +4,6 @@ class Event < ApplicationRecord
   validates :name, presence: true
 end
 
-def nicedate
-  self.strftime("%b %-d, %Y")
-end
 
-def nicetime
-  self.strftime("%-I:%M %P")
-end
+
+

@@ -10,9 +10,12 @@ To Do:
 *COMPLETED: 9) Create helper method for Event View called #ok_to_edit?
 *COMPLETED: 11) Edit Page for Events
 *COMPLETED: 12) before_action:
-1) Create page to use scope method
+*COMPLETED: 1) Create page to use scope method
 6) Venue/Show page: Create 2 links: 
                     a) Link to Upcoming Shows
                     b) Link to Past Productions
 10) Edit page for Venues
 *COMPLETED: 11) Delete Event Button
+
+
+  <%= f.select :tony_params, options_for_select([ event_by_state.map { |i| i } ])  %>

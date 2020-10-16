@@ -1,22 +1,18 @@
-<h1>All Performances</h1>
+<% if @errors %>
+<h4><%= @errors %> </h4>
 
+<% else %>
 
-    <%= form_with url: search_path, local: :true  do |f| %>
-    <%= f.label "Filter Performances by State:"%>
-  <%= f.select :state_select, event_by_state.each { |i| [i] } %>
-    <%= f.submit %>
-    <% end %>
-
+<h1>What's Playing in <%= @events[0].venue.state%> </h1>
 
 <table>
 
-<% if @events.count != 0 %>
 <th>Performance</th>
 <th>Theatre</th>
 <th>Date/Tine</th>
 <th>Producer</th>
 <th>Company</th>
-<% end %>
+
 
     <% @events.each do |event| %> 
     <tr>
@@ -29,3 +25,4 @@
     <% end %>
 
 </table>
+<% end %>

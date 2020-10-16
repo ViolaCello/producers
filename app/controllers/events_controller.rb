@@ -77,7 +77,13 @@ end
 
 
 def search
-    byebug
+   the_event = search_return(params[:state_select])
+    if the_event == nil || the_event == []
+        @errors = "There are no listed performances in #{params[:state_select]}."
+    else 
+   @events = the_event 
+    end
+    render :search
 end
 
 
@@ -91,5 +97,25 @@ def get_event
     @event = Event.find_by(id: params[:id])
 end
 
+def search_return(state)
+    state_events = []
+    venue_list = []
+    results = []
+    Venue.by_state(state).map do |venue|
+        venue_list.push(venue)
+    end
+    venue_list.map do |venue|
+        state_events.push(venue.events) if venue.events.count != 0
+    end
+    if state_events != []
+    c = state_events.count
+    c.times do |i|
+        state_events[i].each do |event|
+            results.push(event)
+        end
+        end
+    results
+    end 
+end
 
 end
