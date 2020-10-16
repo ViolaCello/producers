@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   match '/auth/:provider/callback', to: 'sessions#github', via: [:get, :post]
+  post '/search', to: 'events#search'
 
   resources :venues
   resources :users do 

@@ -1,4 +1,13 @@
-<h1>Index of Events</h1>
+<h1>All Performances</h1>
+
+
+
+    <%= form_with url: search_path, local: :true  do |f| %>
+    <%= f.label "Filter Performances by State:"%>
+   <%= f.select :tony_params, options_for_select([ event_by_state ])  %>
+    <%= f.submit %>
+    <% end %>
+
 
 <table>
 

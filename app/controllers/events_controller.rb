@@ -76,6 +76,9 @@ def update
 end
 
 
+def search
+    byebug
+end
 
 
     private
