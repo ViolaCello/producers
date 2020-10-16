@@ -2,13 +2,13 @@
 To Do:
 
 1) Create page to use scope method
-2) method to make dates from Event model more readable
+*COMPLETED: 2) method to make dates from Event model more readable 
 3) Put Events/index page into a table
 4) Create links to the info on the Events Index page
 5) Create link to Event Show page for individual Events
 6) Venue/Show page: Create 2 links: 
                     a) Link to Upcoming Shows
                     b) Link to Past Productions
-7) Event Show Page: Correct Date and Time fields (using method from #2 above)
+*COMPLETED 7) Event Show Page: Correct Date and Time fields (using method from #2 above)
 8) Add EDIT EVENT button to Event Show Page
 9) Create helper method for Event View called #ok_to_edit?
