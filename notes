@@ -10,5 +10,8 @@ To Do:
                     a) Link to Upcoming Shows
                     b) Link to Past Productions
 *COMPLETED: 7) Event Show Page: Correct Date and Time fields (using method from #2 above)
-8) Add EDIT EVENT button to Event Show Page
+* COMPLETED: 8) Add EDIT EVENT button to Event Show Page
 *COMPLETED: 9) Create helper method for Event View called #ok_to_edit?
+10) Edit page for Venues
+11) Edit Page for Events
+*COMPLETED: 12) before_action:

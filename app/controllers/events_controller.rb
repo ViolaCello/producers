@@ -1,17 +1,14 @@
 class EventsController < ApplicationController
+    before_action :get_event, except: [:index, :new, :create]
 
 def index
     if params[:user_id]
         @user = User.find_by(id: params[:user_id])
         @events = @user.events
-    elsif 
-        params[:venue_id]
-        @artist = Artist.find_by(id: params[:artist_id])
-        @events = @artist.events
     else 
         @events = Event.all
     end
-    end
+end
 
 
 def new
@@ -40,22 +37,34 @@ end
 
 
     def show
-        @event = Event.find_by(id: params[:id])
+        @user = current_user if !!current_user
+        get_event
     end
 
 def destroy
     if logged_in?
-    user = current_user
+    @user = current_user
     user_ok?(@user)
-    event = Event.find_by(id: params[:id])
-    if user.id == event.user_id 
-        event.destroy
+    get_event
+    if user.id == @event.user_id 
+        @event.destroy
         redirect_to user_events_path(@user)
     end
     redirect_to '/'
     end
 
 end
+
+def edit
+    # get_event
+    byebug
+   
+end
+
+def update
+
+end
+
 
 
 
@@ -65,7 +74,9 @@ def event_params
     params.require(:event).permit(:name, :venue_id, :curtain, :user_id)
 end
 
-
+def get_event
+    @event = Event.find_by(id: params[:id])
+end
 
 
 end

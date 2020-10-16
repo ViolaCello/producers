@@ -11,7 +11,6 @@
 <p>Time: <%= @event.curtain.nicetime%> </p>
 
 <% if ok_to_edit? %>
-<p>Ok to Edit</p>
-<% else %>
-<p>NOT ok to edit</p>
+<p> <%= link_to "Edit Event", edit_user_event_path(@user, @event) %> </p>
+
 <% end %>
