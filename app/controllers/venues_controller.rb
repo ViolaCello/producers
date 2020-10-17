@@ -27,6 +27,7 @@ end
 
 def update
     if logged_in?
+        @venue = Venue.find_by(id: params[:id])
         if @venue.update(venue_params)
             redirect_to venue_path
         else 
