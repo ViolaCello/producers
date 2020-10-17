@@ -7,3 +7,44 @@
 
 <%= link_to "Edit Venue Info", edit_venue_path(@venue) if logged_in? %> 
 
+<% if @venue.events.upcoming.count != 0 %>
+<h3>Upcoming Performances at <%= @venue.name %> </h3>
+<table>
+<th>Performance</th>
+<th>Theatre</th>
+<th>Date/Tine</th>
+<th>Producer</th>
+<th>Company</th>
+
+<% @venue.events.upcoming.each do |event| %> 
+    <tr>
+ <td>   <%= link_to event.name, event_path(event) %> </td>
+ <td>   <%= link_to event.venue.name, venue_path(event.venue) %> </td>
+ <td>   <%= event.curtain.nicedate %>  at <%= event.curtain.nicetime %> </td>
+ <td>   <%= link_to event.user.name, user_path(event.user) %> </td>
+ <td>   <%= event.user.company %> </td>
+</tr>
+    <% end %>
+</table>
+  <% end %>
+
+<% if @venue.events.past.count != 0 %>
+<h3>Past Performances at <%= @venue.name %> </h3>
+<table>
+<th>Performance</th>
+<th>Theatre</th>
+<th>Date/Tine</th>
+<th>Producer</th>
+<th>Company</th>
+
+<% @venue.events.past.each do |event| %> 
+    <tr>
+ <td>   <%= link_to event.name, event_path(event) %> </td>
+ <td>   <%= link_to event.venue.name, venue_path(event.venue) %> </td>
+ <td>   <%= event.curtain.nicedate %>  at <%= event.curtain.nicetime %> </td>
+ <td>   <%= link_to event.user.name, user_path(event.user) %> </td>
+ <td>   <%= event.user.company %> </td>
+</tr>
+    <% end %>
+</table>
+  <% end %>

@@ -14,8 +14,8 @@ To Do: Friday
 
 *COMPLETED: 11) Delete Event Button
 *COMPLETED: 12) Move forms to partials
-6) Venue/Show page: Create 2 links: 
-                    a) Link to Upcoming Shows
+*COMPLETED: 6) Venue/Show page: Create 2 links: 
+                    a) Link to Upcoming Shows with Event.Scope method Venue.first.events.upcoming
                     b) Link to Past Productions
 *COMPLETED: 10) Edit page for Venues
 13) Make layout look better

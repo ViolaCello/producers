@@ -2,8 +2,8 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :venue
   validates :name, presence: true
-  scope :upcoming, -> { where 'curtain < ?', DateTime }
-  scope :past, -> { where 'curtain > ?', DateTime }
+  scope :upcoming, -> { where 'curtain > ?', DateTime.now }
+  scope :past, -> { where 'curtain < ?', DateTime.now }
  
 end
 
