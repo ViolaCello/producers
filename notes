@@ -11,29 +11,12 @@ To Do: Friday
 *COMPLETED: 11) Edit Page for Events
 *COMPLETED: 12) before_action:
 *COMPLETED: 1) Create page to use scope method
+
+*COMPLETED: 11) Delete Event Button
+*COMPLETED: 12) Move forms to partials
 6) Venue/Show page: Create 2 links: 
                     a) Link to Upcoming Shows
                     b) Link to Past Productions
 10) Edit page for Venues
-*COMPLETED: 11) Delete Event Button
-12) Move forms to partials
 13) Make layout look better
 
-<%= form_for [@user, @event] do |f|%>
-
-
-
-
-  <%= f.label :name%><br>
-  <%= f.text_field :name%><br>
-
-  <%= f.label :date %><br>
-  <%= f.datetime_select  :curtain %><br>
-  <%= f.collection_select :venue_id, Venue.all, :id, :name %>
-
-
-
-  <%= f.submit %>
-<% end %>  
-
-<%= link_to "Delete Event", [@user, @event], :method => :delete %>
