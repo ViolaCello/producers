@@ -68,8 +68,11 @@ def update
         @user = current_user
         user_ok?(@user)
         redirect_to '/' if @user.id != @event.user_id
-        @event.update(event_params)
+        if @event.update(event_params)
         redirect_to user_event_path(@user, @event)
+        else  
+            render :'events/edit'
+        end
         else  
             redirect_to '/'
         end

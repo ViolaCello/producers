@@ -1,6 +1,6 @@
 <h1> Show Event Page for <%= @event.name %> </h1>
 
-
+<%= render partial: '/errors', locals: { record: @event }  %>
 
 <p>Producer: <%= @event.user.name %> </p>
 <p>Company: <%= @event.user.company %> </p>
