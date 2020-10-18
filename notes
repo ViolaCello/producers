@@ -19,4 +19,5 @@ To Do: Friday
                     b) Link to Past Productions
 *COMPLETED: 10) Edit page for Venues
 13) Make layout look better
-
+COMPLETED: 14) Make list of past events Descending, future events, ascending on Views and Events Views
+Venue.second.events.upcoming.order(curtain: :desc)

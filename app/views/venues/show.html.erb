@@ -16,7 +16,7 @@
 <th>Producer</th>
 <th>Company</th>
 
-<% @venue.events.upcoming.each do |event| %> 
+<% @venue.events.upcoming.order(:curtain).each do |event| %> 
     <tr>
  <td>   <%= link_to event.name, event_path(event) %> </td>
  <td>   <%= link_to event.venue.name, venue_path(event.venue) %> </td>
@@ -37,7 +37,7 @@
 <th>Producer</th>
 <th>Company</th>
 
-<% @venue.events.past.each do |event| %> 
+<% @venue.events.past.order(curtain: :desc).each do |event| %> 
     <tr>
  <td>   <%= link_to event.name, event_path(event) %> </td>
  <td>   <%= link_to event.venue.name, venue_path(event.venue) %> </td>
