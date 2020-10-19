@@ -1,24 +1,9 @@
 # README
+Welcome to the Impresario! Rails web application.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Begin by running 'bundle install', then 'rails s'.
 
-Things you may want to cover:
+Call Localhost:3000 on your Chrome bowser
 
-* Ruby version
+This application is designed for theatre producers to list their upcoming show in a clear format without a lot of “noise.”  The main components are there for the visitors to the website to see a show’s listing, the date/time that is goes up, the name of the producer and the producing company, and the theatre/venue that the show is performing in. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
