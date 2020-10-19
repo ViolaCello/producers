@@ -2,7 +2,7 @@
 
 <table>
 
-<% @venues.each do |venue| %>
+<% @venues.order(:name).each do |venue| %>
 <tr>
 <td><p><%= link_to venue.name, venue_path(venue) %> </td><td> <%= venue.location %></p></td>
 </tr>

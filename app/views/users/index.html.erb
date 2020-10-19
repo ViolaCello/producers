@@ -1,4 +1,4 @@
-<h1>User Index</h1>
+<h1>All Producers</h1>
 
 <table>
 
@@ -8,7 +8,7 @@
 <th>Producer</th>
 <th> Company</th></tr>
 
-<% @users.each do |user| %>
+<% @users.order(:company).each do |user| %>
 
 <td><%= link_to user.name, user_path(user) %> </td>
 <td><%= user.company  %> </td>

@@ -14,9 +14,9 @@ def location
     "#{city}, #{state}"
 end
 
-# def self.by_state(town)
-#     self.where("state = ?", town)
-# end
+#  def self.by_state(town)
+#      self.where("state = ?", town)
+#  end
 
 
 
