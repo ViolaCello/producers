@@ -37,3 +37,22 @@
       border-top: 1px solid #151b04;
       border-bottom: 1px solid #151b04;
     }
+/* 
+    .background  {
+      img: url("https://i.pinimg.com/originals/3b/38/ac/3b38accaa712a906dcd1c7a7c03f3954.jpg"); 
+    } */
+    
+    body{
+      background-attachment: fixed;
+      background-image: url("https://i.pinimg.com/originals/3b/38/ac/3b38accaa712a906dcd1c7a7c03f3954.jpg");
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: hsla(0,0%,100%,0.95);
+      background-blend-mode: overlay;
+  
+  }
