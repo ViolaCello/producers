@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
 def index
     @users = User.all
-   # byebug
 end
 
 def new
@@ -22,7 +21,7 @@ end
     
 def show
      @user = User.find_by(id: params[:id])
-    redirect_to '/' if @user == nil
+     redirect_to '/' if @user == nil
 end
 
 def edit
@@ -36,10 +35,10 @@ end
 
 def update
     if logged_in?
-    @user = current_user
-    user_ok?(@user)
-    @user.update(user_params)
-    redirect_to user_path(@user)
+        @user = current_user
+        user_ok?(@user)
+        @user.update(user_params)
+        redirect_to user_path(@user)
     else  
         redirect_to '/'
     end
@@ -51,7 +50,5 @@ private
 def user_params
     params.require(:user).permit(:name, :password, :company, :email)
 end
-
-
 
 end

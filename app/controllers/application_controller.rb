@@ -10,11 +10,9 @@ class ApplicationController < ActionController::Base
         !current_user.nil?  
     end
 
-
-
      def user_ok?(user)
         if !!user == false || (user.id != current_user.id)
-         redirect_to '/'
+            redirect_to '/'
         else
             true
        end

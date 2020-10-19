@@ -13,26 +13,26 @@ end
 
 def new
    @user = current_user if logged_in?
-    if !!@user
-    @venues = Venue.all
-        @event = @user.events.build
-    else 
-        redirect_to '/'
-    end
+        if !!@user
+            @venues = Venue.all
+            @event = @user.events.build
+        else 
+            redirect_to '/'
+        end
 end
 
     def create
         @user = current_user if logged_in?
-        if !!@user
-        @event = @user.events.build(event_params)
+            if !!@user
+                @event = @user.events.build(event_params)
      
-        if @event.save
-            redirect_to event_path(@event)
-        else 
-            @errors = @event.errors
-            render :'events/new'
-        end
-        end
+                if @event.save
+                    redirect_to event_path(@event)
+                else 
+                     @errors = @event.errors
+                    render :'events/new'
+                end
+            end
     end
 
 
@@ -44,13 +44,13 @@ def destroy
     if logged_in?
         @user = current_user
         user_ok?(@user)
-        if @user.id == @event.user_id 
-            @event.destroy
-            redirect_to user_events_path(@user)
+            if @user.id == @event.user_id 
+                @event.destroy
+                redirect_to user_events_path(@user)
+            end
+        else 
+            redirect_to '/'
         end
-    else 
-    redirect_to '/'
-    end
 end
 
 def edit
@@ -68,14 +68,14 @@ def update
         @user = current_user
         user_ok?(@user)
         redirect_to '/' if @user.id != @event.user_id
-        if @event.update(event_params)
-        redirect_to user_event_path(@user, @event)
-        else  
-            render :'events/edit'
-        end
-        else  
-            redirect_to '/'
-        end
+            if @event.update(event_params)
+                redirect_to user_event_path(@user, @event)
+            else  
+                render :'events/edit'
+            end
+    else  
+        redirect_to '/'
+    end
 end
 
 
@@ -84,13 +84,13 @@ def search
     if the_event == nil || the_event == []
         @errors = "There are no listed performances in #{params[:state_select]}."
     else 
-   @events = the_event 
+        @events = the_event 
     end
     render :search
 end
 
 
-    private
+private
 
 def event_params
     params.require(:event).permit(:name, :venue_id, :curtain, :user_id)
@@ -109,14 +109,14 @@ def search_return(state)
     end
     venue_list.map do |venue|
         state_events.push(venue.events) if venue.events.count != 0
-    end
+        end
     if state_events != []
-    c = state_events.count
-    c.times do |i|
+         c = state_events.count
+        c.times do |i|
         state_events[i].each do |event|
             results.push(event)
         end
-        end
+    end
     results
     end 
 end

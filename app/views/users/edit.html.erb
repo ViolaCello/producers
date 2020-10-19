@@ -3,15 +3,5 @@
 
 <%= render partial: '/errors', locals: { record: @user }  %>
 
-<%= form_for @user do |f|%>
-  <%= f.label :name%><br>
-  <%= f.text_field :name%><br>
-<%= f.label :email%><br>
-  <%= f.email_field :email%><br>
-  <%= f.label :password%><br>
-  <%= f.password_field :password%><br>
-  <%= f.label :company%><br>
-  <%= f.text_field :company%><br>
+<%= render partial: "/users/forms" %>
 
-  <%= f.submit %>
-<%end%>
