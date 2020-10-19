@@ -1,11 +1,12 @@
 <h1>All Performances</h1>
 
-
+<% if params[:user_id] == nil %>
     <%= form_with url: search_path, local: :true  do |f| %>
     <%= f.label "Filter Performances by State:"%>
   <%= f.select :state_select, event_by_state.each { |i| [i] } %>
     <%= f.submit %>
     <% end %>
+<% end %>
 
 
 
