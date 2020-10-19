@@ -18,11 +18,14 @@ To Do: Friday
                     a) Link to Upcoming Shows with Event.Scope method Venue.first.events.upcoming
                     b) Link to Past Productions
 *COMPLETED: 10) Edit page for Venues
-13) Make layout look better
+
 *COMPLETED: 14) Make list of past events Descending, future events, ascending on Views and Events Views
 *COMPLETED: 15) Order venue list by name
 *COMPLETED: 16) Order Prodcuers list by company name
 *COMPLETED: 17) Add "My Events" for when Producer/User logged in
+*COMPLETED: 18) Confirm that new_user_event, edut_user_event, and user_event (events#show) are in fact nested routes with <p><%= debug(params) %></p>
 
-
+13) Make layout look better
+  *  COMPLETED: - Move Navigation links from side to top of page
 Video Link: https://youtu.be/dAAuuhQVPr4
+

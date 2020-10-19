@@ -15,23 +15,32 @@
   </head>
 
   <body>
-  <p><%= link_to "Home", home_path %> </p>
-  <p><%= link_to "All Producers", users_path %></p>
-<p><%= link_to "All Performances", events_path %></p>
-<p><%= link_to "All Theatres", venues_path %></p>
 
-  <% if logged_in? %>
-  <p>Logged in as: <%= current_user.name %></p>
-  
-  <p><%= link_to "Edit Profile", edit_user_path(current_user) %> </p>
-  <p><%= link_to "My Events", user_events_path(current_user) %> </p>
-  <p><%= link_to "Add Event", new_user_event_path(current_user) %> </p>
-   <p><%= link_to "Add Venue", new_venue_path %> </p>
-  <p><%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete %></p>
 
-  
 
+<table border="5" width="100%" 
+           align="center">
+
+<tr bgcolor="lightblue">
+<td><%= link_to "Home", home_path %></td>
+ <td><%= link_to "All Producers", users_path %></td>
+<td><%= link_to "All Performances", events_path %></td>
+<td><%= link_to "All Theatres", venues_path %></td>
+
+<% if logged_in? %>
+  <td><%= link_to "Edit Profile", edit_user_path(current_user) %> </td>
+  <td><%= link_to "My Events", user_events_path(current_user) %> </td>
+  <td><%= link_to "Add Event", new_user_event_path(current_user) %> </td>
+   <td><%= link_to "Add Venue", new_venue_path %> </td>
+  <td><%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete %></td>
   <% end %>
+
+</table>
+
+<% if logged_in? %><h5>Logged in as: <%= current_user.name %></h5><% end %>
+
+
+
   <center>
     <%= yield %>
     </center>
